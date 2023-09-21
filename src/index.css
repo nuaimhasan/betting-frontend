@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  max-width: 90% !important;
+  margin: auto;
+}
+
+@media only screen and (min-width: 1250px) {
+  .container {
+    max-width: 1200px !important;
+  }
+}
