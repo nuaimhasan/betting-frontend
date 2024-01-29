@@ -3,7 +3,7 @@ import { FaMobileAlt, FaHome } from "react-icons/fa";
 
 export default function MenuHeader() {
   return (
-    <section className="bg-gray-600 text-white text-sm">
+    <section className="bg-gray-900 text-white text-sm">
       <div className="container">
         <ul className="flex items-center">
           <li>
@@ -22,12 +22,15 @@ export default function MenuHeader() {
             </Link>
           </li>
           <li>
-            <Link to="" className="block px-10 py-2 border-r border-white">
+            <Link
+              to="/casino"
+              className="block px-10 py-2 border-r border-white"
+            >
               Casino
             </Link>
           </li>
           <li>
-            <Link to="" className="block px-10 py-2 border-r border-white">
+            <Link to="/slot" className="block px-10 py-2 border-r border-white">
               Solt
             </Link>
           </li>

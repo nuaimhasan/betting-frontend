@@ -3,11 +3,11 @@ import LoginModal from "../LoginModal/LoginModal";
 
 export default function Header() {
   return (
-    <header className="py-2.5">
+    <header className="py-2.5 bg-gray-700">
       <div className="container">
         <div className="flex justify-between items-center">
           <Link to="">
-            <img src="/images/logo.png" alt="" className="w-32" />
+            <img src="/images/logo.png" alt="" className="w-36" />
           </Link>
 
           <div className="flex items-center gap-2 text-[15px]">

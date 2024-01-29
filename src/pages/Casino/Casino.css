@@ -1,0 +1,49 @@
+.casino_card {
+  display: flex;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.casino_card .card_image {
+  width: 60%;
+  position: relative;
+  overflow: hidden;
+}
+
+.casino_card .card_image img {
+  height: 100%;
+  transition: all 0.5s ease;
+}
+
+.casino_card .card_content {
+  width: 40%;
+  font-size: 15px;
+  background-color: #fff;
+}
+
+.card_image_tag {
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  width: 100%;
+  transition: all 0.5s ease;
+}
+
+.card_image_tag span {
+  margin-left: 6px;
+  margin-top: 6px;
+  background: red;
+  color: #fff;
+  padding: 1px 8px;
+  font-size: 15px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.casino_card:hover .card_image img {
+  transform: scale(1.1);
+}
+
+.casino_card:hover .card_image_tag {
+  bottom: 10px;
+}
