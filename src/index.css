@@ -12,3 +12,27 @@
     max-width: 1200px !important;
   }
 }
+
+.swiper-button-next {
+  top: 19px !important;
+}
+
+.swiper-button-prev.swiper-button-disabled::after {
+  font-size: 24px !important;
+  color: #ddd !important;
+}
+
+.swiper-button-next::after {
+  font-size: 24px !important;
+  color: white !important;
+}
+
+.swiper-button-prev {
+  top: 19px !important;
+  left: 88% !important;
+}
+
+.swiper-button-prev::after {
+  font-size: 24px !important;
+  color: #fff !important;
+}

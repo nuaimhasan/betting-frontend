@@ -1,0 +1,30 @@
+import Marquee from "react-fast-marquee";
+import { MdCampaign } from "react-icons/md";
+
+export default function Headline() {
+  return (
+    <section className="bg-red-500 text-white text-[15px] py-1">
+      <div className="container">
+        <div className="flex items-center">
+          <p className="px-3">
+            <MdCampaign className="text-2xl" />
+          </p>
+          <Marquee>
+            <p>
+              eManager is Bangladesh&apos;s Best Cricket Betting Exchange
+              Platform.
+            </p>
+            <p>Sign Up For Your Free ID Today.</p>
+            <p>Bkash, Nagad & Rocket Accepted. More Ways to Win Big !!</p>
+            <p>
+              eManager is now a partner with Jilli, Stay tuned for more
+              exclusive offers, tournaments, and events on your favourite Jilli
+              games.
+            </p>
+            <p></p>
+          </Marquee>
+        </div>
+      </div>
+    </section>
+  );
+}
