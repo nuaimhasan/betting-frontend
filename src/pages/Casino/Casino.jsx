@@ -8,13 +8,13 @@ export default function Casino() {
         <img
           src="/images/casino/casinoBanner.jpg"
           alt=""
-          className="w-full h-96"
+          className="w-full h-32 lg:h-96"
         />
       </div>
 
-      <div className="py-10">
+      <div className="py-5 md:py-10">
         <div className="container">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-2 gap-4">
             <div className="casino_card">
               <div className="card_image">
                 <img src="/images/casino/casino1.jpg" alt="" />
@@ -31,7 +31,7 @@ export default function Casino() {
                 <h2 className="mt-2 border-l-4 border-red-600 px-2 text-2xl font-medium text-red-600">
                   PP
                 </h2>
-                <div className="p-3 flex flex-col gap-3">
+                <div className="p-3 flex flex-col gap-1 md:gap-3">
                   <h3 className="text-gray-900">
                     Enjoy High Quality Live Streams with Gorgeous Dealers
                   </h3>

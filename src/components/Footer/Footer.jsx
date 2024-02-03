@@ -2,51 +2,51 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-gray-200">
-      <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-        <div className="md:flex md:justify-between">
-          <div className="mb-6 md:mb-0">
-            <Link to="/">
-              <img src="/images/logo.png" className="w-40" alt="Logo" />
+    <footer className="bg-gray-900 text-gray-200">
+      <div className="container py-5 md:py-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
+          <div className="lg:col-span-2">
+            <Link to="/" className="w-24">
+              <img src="/images/logo.png" className="w-16 lg:w-24" alt="Logo" />
             </Link>
-            <p className="w-1/2 text-sm  text-gray-400">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae
-              cupiditate dolor amet a velit consequuntur aliquid perspiciatis
-              dignissimos quas ea? Nam molestiae ratione ea quas quia enim
-              dolorum velit quaerat.
-            </p>
           </div>
-
-          <div className="grid grid-cols-2 gap-8">
-            <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase xt-white">
-                Responsible Gaming
-              </h2>
-              <div className="flex items-center gap-4">
-                <img src="/images/safe1.png" alt="" className="w-8" />
-                <img src="/images/safe2.png" alt="" className="w-8" />
-                <img src="/images/safe3.png" alt="" className="w-8" />
-              </div>
+          <div>
+            <h2 className="mb-4 text-xs md:text-sm font-semibold uppercase xt-white">
+              Responsible Gaming
+            </h2>
+            <div className="flex items-center gap-4">
+              <img src="/images/safe1.png" alt="" className="w-5 md:w-8" />
+              <img src="/images/safe2.png" alt="" className="w-5 md:w-8" />
+              <img src="/images/safe3.png" alt="" className="w-5 md:w-8" />
             </div>
-            <div>
-              <h2 className="mb-6 text-sm font-semibold">Payment Methods</h2>
-              <div className="flex items-center gap-4">
-                <img src="/images/pay16.png" alt="" className="w-12" />
-                <img src="/images/pay22.png" alt="" className="w-12" />
-                <img src="/images/pay33.png" alt="" className="w-12" />
-                <img src="/images/pay34.png" alt="" className="w-12" />
-              </div>
+          </div>
+          <div>
+            <h2 className="mb-4 text-xs md:text-sm font-semibold">
+              Payment Methods
+            </h2>
+            <div className="flex items-center gap-4">
+              <img src="/images/pay16.png" alt="" className="w-8 md:w-12" />
+              <img src="/images/pay22.png" alt="" className="w-8 md:w-12" />
+              <img src="/images/pay33.png" alt="" className="w-8 md:w-12" />
+              <img src="/images/pay34.png" alt="" className="w-8 md:w-12" />
             </div>
           </div>
         </div>
-        <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <hr className="my-4 border-gray-700 sm:mx-auto lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2024{" "}
             <a href="https://flowbite.com/" className="hover:underline">
-              eManager
+              ebet
             </a>
-            . All Rights Reserved.
+            . All Rights Reserved. Develop by{" "}
+            <Link
+              to="https://emanagerit.com"
+              target="_blank"
+              className="underline"
+            >
+              eManager
+            </Link>
           </span>
           <div className="flex mt-4 sm:justify-center sm:mt-0">
             <Link

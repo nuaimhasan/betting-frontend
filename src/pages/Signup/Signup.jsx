@@ -1,10 +1,10 @@
 export default function Signup() {
   return (
-    <section className="bg-gray-700 text-white py-10">
+    <section className="bg-gray-700 text-white py-5 md:py-10">
       <div className="container">
-        <div className="min-h-[70vh] border-4 border-red-600 rounded">
-          <div className="flex p-6 gap-6 items-center">
-            <div className="w-[450px]">
+        <div className="min-h-[70vh] border-2 md:border-4 border-red-600 rounded">
+          <div className="md:flex p-3 md:p-6 gap-6 items-center">
+            <div className="md:w-[450px]">
               <div className="border-b-2 border-red-600 text-center pb-2 text-red-600 text-lg font-medium">
                 <h2>Sign up</h2>
               </div>
@@ -57,7 +57,7 @@ export default function Signup() {
                 </div>
               </form>
             </div>
-            <div className="w-full">
+            <div className="hidden lg:block w-full">
               <img src="/images/signup.jpg" alt="" className="w-full rounded" />
             </div>
           </div>

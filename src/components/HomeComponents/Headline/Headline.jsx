@@ -3,11 +3,11 @@ import { MdCampaign } from "react-icons/md";
 
 export default function Headline() {
   return (
-    <section className="bg-red-500 text-white text-[15px] py-1">
+    <section className="lg:bg-red-500 lg:text-white text-[15px] py-1">
       <div className="container">
         <div className="flex items-center">
-          <p className="px-3">
-            <MdCampaign className="text-2xl" />
+          <p className="sm:px-3 pr-2">
+            <MdCampaign className="text-2xl text-red-600 lg:text-white" />
           </p>
           <Marquee>
             <p>
@@ -21,7 +21,6 @@ export default function Headline() {
               exclusive offers, tournaments, and events on your favourite Jilli
               games.
             </p>
-            <p></p>
           </Marquee>
         </div>
       </div>

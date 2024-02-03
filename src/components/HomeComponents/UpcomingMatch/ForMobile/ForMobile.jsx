@@ -1,25 +1,39 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
 import { Link } from "react-router-dom";
+import { EffectCoverflow } from "swiper/modules";
 
-export default function Slider1() {
+export default function ForMobile() {
   return (
-    <div className="relative rounded overflow-hidden">
-      <h2 className="absolute top-0 left-0 bg-red-500 w-full py-2 pl-3 text-white font-semibold">
+    <>
+      <h2 className="font-semibold text-white border-l-4 border-red-600 pl-2 leading-4">
         Favourites
       </h2>
-      <Swiper navigation={true} modules={[Navigation]} className="pt-10 ">
+      <Swiper
+        className="mt-3"
+        effect={"coverflow"}
+        grabCursor={true}
+        centeredSlides={true}
+        loop={true}
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 2,
+          slideShadows: true,
+        }}
+        modules={[EffectCoverflow]}
+      >
         <SwiperSlide>
           <Link
             to="https://bxawscf.9wickets.pro/exchange/member/index.jsp?eventType=4"
             target="_blank"
           >
             <img
-              src="/images/upcoming-match/image_100136.jpg"
+              src="/images/upcoming-match/image_100139.jpg"
               alt=""
-              className="h-40 lg:h-72 w-full"
+              className="h-36 lg:h-72 w-[90%] rounded"
             />
           </Link>
         </SwiperSlide>
@@ -31,7 +45,7 @@ export default function Slider1() {
             <img
               src="/images/upcoming-match/image_100139.jpg"
               alt=""
-              className="h-40 lg:h-72 w-full"
+              className="h-36 lg:h-72 w-[90%] rounded"
             />
           </Link>
         </SwiperSlide>
@@ -43,7 +57,7 @@ export default function Slider1() {
             <img
               src="/images/upcoming-match/image_100142.jpg"
               alt=""
-              className="h-40 lg:h-72 w-full"
+              className="h-36 lg:h-72 w-[90%] rounded"
             />
           </Link>
         </SwiperSlide>
@@ -55,11 +69,11 @@ export default function Slider1() {
             <img
               src="/images/upcoming-match/image_95331.jpg"
               alt=""
-              className="h-40 lg:h-72 w-full"
+              className="h-36 lg:h-72 w-[90%] rounded"
             />
           </Link>
         </SwiperSlide>
       </Swiper>
-    </div>
+    </>
   );
 }

@@ -1,6 +1,6 @@
 export default function TopHeader() {
   return (
-    <section className="bg-gray-600 text-white">
+    <section className="bg-gray-800 text-white border-b border-gray-700 hidden sm:block">
       <div className="container">
         <div className="flex justify-between items-center">
           <div className="flex items-center text-sm">

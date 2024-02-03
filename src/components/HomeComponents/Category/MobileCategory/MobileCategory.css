@@ -1,0 +1,24 @@
+.mobile_category button {
+  width: 64px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.mobile_category button.active {
+  background: red !important;
+  position: relative;
+}
+.mobile_category button.active::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: #000;
+  transform: translate(-50%) rotate(45deg);
+}

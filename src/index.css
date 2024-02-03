@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .container {
-  max-width: 90% !important;
+  max-width: 95% !important;
   margin: auto;
 }
 
@@ -16,6 +16,28 @@
 input,
 select {
   outline: none;
+}
+
+.menu_items li a {
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+.menu_items li a::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  right: 0;
+  width: 1px;
+  height: 12px;
+  background: #fff;
+  border-radius: 4px;
+  transform: translateY(-50%);
+}
+
+.menu_items li a:hover {
+  border-bottom: 1px solid red;
+  color: red;
 }
 
 .swiper-button-next {
@@ -59,7 +81,7 @@ select {
   top: 10px;
   right: 10px;
   font-size: 18px;
-  z-index: 99999;
+  z-index: 2;
   transition: all 0.3s ease;
 }
 
@@ -108,5 +130,5 @@ select {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 999999;
+  z-index: 1;
 }

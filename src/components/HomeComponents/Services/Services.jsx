@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 export default function Services() {
   return (
-    <section className="py-10 bg-gray-600 text-white">
+    <section className="hidden lg:block pt-10 bg-gray-900 text-white">
       <div className="container">
-        <div className="grid grid-cols-4 gap-10">
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10 border-b border-gray-700 pb-10">
           <div className="flex items-center gap-3">
             <img
               src="/images/icon-24hr.png"

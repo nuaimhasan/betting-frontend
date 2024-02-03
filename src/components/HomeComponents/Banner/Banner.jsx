@@ -19,7 +19,7 @@ export default function Banner() {
             <img
               src="/images/banner/banner.jpg"
               alt=""
-              className="w-full h-[550px]"
+              className="w-full h-32 lg:h-[550px]"
             />
           </Link>
         </SwiperSlide>
@@ -28,7 +28,7 @@ export default function Banner() {
             <img
               src="/images/banner/banner1.jpg"
               alt=""
-              className="w-full h-[550px]"
+              className="w-full h-32 lg:h-[550px]"
             />
           </Link>
         </SwiperSlide>
@@ -37,7 +37,7 @@ export default function Banner() {
             <img
               src="/images/banner/banner2.jpg"
               alt=""
-              className="w-full h-[550px]"
+              className="w-full h-32 lg:h-[550px]"
             />
           </Link>
         </SwiperSlide>

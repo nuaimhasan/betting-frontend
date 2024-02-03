@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import Signup from "../pages/Signup/Signup";
 import Casino from "../pages/Casino/Casino";
 import Slot from "../pages/Slot/Slot";
+import Login from "../pages/Login/Login";
 
 export const routes = createBrowserRouter([
   {
@@ -19,11 +20,15 @@ export const routes = createBrowserRouter([
         element: <Signup />,
       },
       {
+        path: "/login",
+        element: <Login />,
+      },
+      {
         path: "casino",
         element: <Casino />,
       },
       {
-        path: "slot",
+        path: "slots",
         element: <Slot />,
       },
     ],
