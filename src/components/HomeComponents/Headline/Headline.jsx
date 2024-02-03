@@ -3,7 +3,7 @@ import { MdCampaign } from "react-icons/md";
 
 export default function Headline() {
   return (
-    <section className="lg:bg-red-500 lg:text-white text-[15px] py-1">
+    <section className="lg:bg-red-500 text-white text-[15px] py-1">
       <div className="container">
         <div className="flex items-center">
           <p className="sm:px-3 pr-2">

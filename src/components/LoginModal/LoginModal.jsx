@@ -1,17 +1,21 @@
 import { MdClose } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-export default function LoginModal() {
+export default function LoginModal({ loginModal, setLoginModal }) {
   return (
-    <dialog id="loginModal" className="modal">
-      <div className="modal-box p-0 w-[400px] rounded-md">
+    <>
+      <button
+        onClick={() => setLoginModal(false)}
+        className={`overlay ${loginModal && "overlay_show"}`}
+      ></button>
+      <div
+        className={`modal w-[400px] rounded-md ${loginModal && "modal_show"}`}
+      >
         <div className="bg-red-600 px-4 py-3 flex justify-between items-end">
           <p className="text-lg text-white">Welcome to eManager</p>
-          <form method="dialog">
-            <button>
-              <MdClose className="text-xl hover:text-white duration-200" />
-            </button>
-          </form>
+          <button onClick={() => setLoginModal(false)}>
+            <MdClose className="text-xl hover:text-white duration-200" />
+          </button>
         </div>
         <div className="py-8 px-10 bg-gray-100">
           <form className="flex flex-col gap-4 text-gray-800">
@@ -53,6 +57,6 @@ export default function LoginModal() {
           </form>
         </div>
       </div>
-    </dialog>
+    </>
   );
 }

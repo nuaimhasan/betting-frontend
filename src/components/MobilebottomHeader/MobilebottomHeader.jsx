@@ -1,6 +1,6 @@
 export default function MobilebottomHeader() {
   return (
-    <div className="w-full fixed bottom-0 left-0 text-white text-[13px]">
+    <div className="w-full fixed bottom-0 left-0 z-50 text-white text-[13px] lg:hidden">
       <div className="grid grid-cols-3">
         <button className="w-full flex gap-1 items-center justify-center bg-white py-1">
           <img
