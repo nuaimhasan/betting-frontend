@@ -7,7 +7,11 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
           <div className="lg:col-span-2">
             <Link to="/" className="w-24">
-              <img src="/images/logo.png" className="w-16 lg:w-24" alt="Logo" />
+              <img
+                src="/images/logo/logo.png"
+                className="w-24 lg:w-40"
+                alt="Logo"
+              />
             </Link>
           </div>
           <div>
@@ -39,14 +43,7 @@ export default function Footer() {
             <a href="https://flowbite.com/" className="hover:underline">
               ebet
             </a>
-            . All Rights Reserved. Develop by{" "}
-            <Link
-              to="https://emanagerit.com"
-              target="_blank"
-              className="underline"
-            >
-              eManager
-            </Link>
+            . All Rights Reserved.
           </span>
           <div className="flex mt-4 sm:justify-center sm:mt-0">
             <Link

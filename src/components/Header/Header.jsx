@@ -20,7 +20,7 @@ export default function Header() {
           </div>
 
           <Link to="">
-            <img src="/images/logo.png" alt="" className="w-[70px] md:w-20" />
+            <img src="/images/logo/logo.png" alt="" className="w-28 md:w-40" />
           </Link>
 
           <div className="hidden lg:flex items-center gap-2 text-[15px]">
