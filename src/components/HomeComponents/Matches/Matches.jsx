@@ -77,9 +77,9 @@ export default function Matches() {
 
                       <div>
                         <p>
-                          {match?.score[1]?.r ? match?.score[1]?.r : 1}-
-                          {match?.score[1]?.w ? match?.score[1]?.w : 1} (
-                          {match?.score[1]?.o ? match?.score[1]?.o : 1})
+                          {match?.score[1]?.r ? match?.score[1]?.r : 0}-
+                          {match?.score[1]?.w ? match?.score[1]?.w : 0} (
+                          {match?.score[1]?.o ? match?.score[1]?.o : 0})
                         </p>
                       </div>
                     </div>

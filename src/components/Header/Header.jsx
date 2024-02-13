@@ -8,6 +8,8 @@ export default function Header() {
   const [loginModal, setLoginModal] = useState(false);
   const [sidebar, setSidebar] = useState(false);
 
+  const userLogin = true;
+
   return (
     <header className="sticky top-0 z-50 py-2.5 bg-gray-900 border-b border-gray-700">
       <div className="container">
@@ -24,25 +26,49 @@ export default function Header() {
           </Link>
 
           <div className="hidden lg:flex items-center gap-2 text-[15px]">
-            <div>
-              <button
-                className="bg-green-600 text-white px-6 py-1 rounded"
-                onClick={() => setLoginModal(true)}
-              >
-                Login
-              </button>
+            {userLogin ? (
+              <>
+                <Link
+                  to="/account/deposit"
+                  className="bg-red-600 text-white px-4 py-1 rounded"
+                >
+                  Deposit
+                </Link>
 
-              <LoginModal
-                setLoginModal={setLoginModal}
-                loginModal={loginModal}
-              />
-            </div>
-            <Link
-              to="/guest/register"
-              className="bg-red-600 text-white px-6 py-1 rounded"
-            >
-              Sign Up
-            </Link>
+                <Link
+                  to="/account/wallet"
+                  className="bg-green-600 text-white px-4 py-1 rounded"
+                >
+                  Main Wallet - ৳ 00
+                </Link>
+
+                <button className="bg-gray-600 text-white px-4 py-1 rounded">
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <div>
+                  <button
+                    className="bg-green-600 text-white px-6 py-1 rounded"
+                    onClick={() => setLoginModal(true)}
+                  >
+                    Login
+                  </button>
+
+                  <LoginModal
+                    setLoginModal={setLoginModal}
+                    loginModal={loginModal}
+                  />
+                </div>
+                <Link
+                  to="/guest/register"
+                  className="bg-red-600 text-white px-6 py-1 rounded"
+                >
+                  Sign Up
+                </Link>
+              </>
+            )}
           </div>
 
           <div className="lg:hidden">

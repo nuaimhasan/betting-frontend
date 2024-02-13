@@ -5,6 +5,9 @@ import Signup from "../pages/Signup/Signup";
 import Casino from "../pages/Casino/Casino";
 import Slot from "../pages/Slot/Slot";
 import Login from "../pages/Login/Login";
+import Sports from "../pages/Sports/Sports";
+import AdminLayout from "../Layout/Adminlayout/AdminLayout";
+import Dashboard from "../pages/AdminPages/Dashboard/Dashboard";
 
 export const routes = createBrowserRouter([
   {
@@ -24,12 +27,26 @@ export const routes = createBrowserRouter([
         element: <Login />,
       },
       {
+        path: "sports",
+        element: <Sports />,
+      },
+      {
         path: "casino",
         element: <Casino />,
       },
       {
         path: "slots",
         element: <Slot />,
+      },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <AdminLayout />,
+    children: [
+      {
+        path: "/admin/dashboard",
+        element: <Dashboard />,
       },
     ],
   },

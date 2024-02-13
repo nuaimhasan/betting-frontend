@@ -1,0 +1,114 @@
+.admin_sidebar {
+  background: #293845;
+  color: #ffffffe3;
+  height: 100vh;
+  overflow-y: auto;
+  position: fixed;
+  width: 300px;
+  left: -0%;
+  top: 0;
+}
+.admin_sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.admin_siderbar a.active {
+  color: var(--primary-color) !important;
+}
+
+.admin_content {
+  width: calc(100% - 300px);
+  background: #cad9e721;
+  min-height: 100vh;
+  position: relative;
+  left: 300px;
+  color: #fff;
+}
+
+.admin_siderbar ul li button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 15px;
+  border-bottom: 1px solid #293845;
+  transition: all 0.3s ease;
+}
+
+.admin_siderbar ul li a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px;
+  font-size: 15px;
+  border-bottom: 1px solid #293845;
+  transition: all 0.3s ease;
+}
+
+.admin_siderbar ul li a:hover,
+.admin_siderbar ul li button:hover {
+  background: #445360;
+  padding: 10px;
+}
+
+.admin_siderbar .active {
+  background: #445360;
+  padding: 10px;
+}
+
+.admin_siderbar .dropdown {
+  max-height: 0px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.admin_siderbar .dropdown_show {
+  max-height: 300px;
+  transition: all 0.3s ease;
+}
+
+.admin_siderbar .dropdown ul li a,
+.admin_siderbar .dropdown ul li button {
+  padding: 8px 8px 8px 35px !important;
+}
+
+.admin_siderbar .subDropdown ul li a {
+  padding: 8px 8px 8px 45px;
+}
+
+.admin_siderbar .subDropdown {
+  max-height: 0px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.admin_siderbar .subDropdown_show {
+  max-height: 300px;
+  transition: all 0.3s ease;
+}
+
+@media only screen and (max-width: 1024px) {
+  .admin_sidebar {
+    transform: translateX(-100%);
+    z-index: 9999;
+    left: -1%;
+    transition: all 0.3s ease;
+  }
+
+  .admin_sidebar_show {
+    transform: translateX(0%);
+  }
+
+  .admin_content {
+    width: 100%;
+    left: 0;
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .admin_sidebar {
+    width: 90% !important;
+  }
+}

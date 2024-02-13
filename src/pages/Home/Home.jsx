@@ -1,5 +1,6 @@
 import Banner from "../../components/HomeComponents/Banner/Banner";
 import MobileCategory from "../../components/HomeComponents/Category/MobileCategory/MobileCategory";
+import CricketBet from "../../components/HomeComponents/CricketBet/CricketBet";
 import Headline from "../../components/HomeComponents/Headline/Headline";
 import Matches from "../../components/HomeComponents/Matches/Matches";
 import Services from "../../components/HomeComponents/Services/Services";
@@ -13,6 +14,7 @@ export default function Home() {
       <MobileCategory />
       <Matches />
       <UpcomingMatch />
+      <CricketBet />
       <Services />
     </>
   );

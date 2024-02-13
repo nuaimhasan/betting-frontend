@@ -4,7 +4,7 @@ import Slider1 from "./Slider1";
 export default function UpcomingMatch() {
   return (
     <>
-      <section className="py-5 lg:bg-gray-800">
+      <section className="py-2 lg:bg-gray-800">
         <div className="container">
           <div className="hidden lg:block">
             <div className="grid lg:grid-cols-2 gap-5">
