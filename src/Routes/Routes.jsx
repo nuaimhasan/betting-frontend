@@ -8,6 +8,9 @@ import Login from "../pages/Login/Login";
 import Sports from "../pages/Sports/Sports";
 import AdminLayout from "../Layout/Adminlayout/AdminLayout";
 import Dashboard from "../pages/AdminPages/Dashboard/Dashboard";
+import AllSports from "../pages/AdminPages/Game/Sports/AllSports/AllSports";
+import AddSport from "../pages/AdminPages/Game/Sports/AddSport/AddSport";
+import EditSport from "../pages/AdminPages/Game/Sports/EditSport/EditSport";
 
 export const routes = createBrowserRouter([
   {
@@ -47,6 +50,18 @@ export const routes = createBrowserRouter([
       {
         path: "/admin/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/admin/game/sports",
+        element: <AllSports />,
+      },
+      {
+        path: "/admin/game/sports/add",
+        element: <AddSport />,
+      },
+      {
+        path: "/admin/game/sports/edit/:id",
+        element: <EditSport />,
       },
     ],
   },

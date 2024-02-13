@@ -3,6 +3,8 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import TopHeader from "../components/TopHeader/TopHeader";
 import MenuHeader from "../components/MenuHeader/MenuHeader";
+import ToggleModalAdd from "../components/ToggleModalAdd/ToggleModalAdd";
+import MobilebottomHeader from "../components/MobilebottomHeader/MobilebottomHeader";
 
 export default function MainLayout() {
   return (
@@ -14,6 +16,9 @@ export default function MainLayout() {
         <Outlet />
       </div>
       <Footer />
+
+      <ToggleModalAdd />
+      <MobilebottomHeader />
     </>
   );
 }

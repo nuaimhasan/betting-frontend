@@ -22,7 +22,6 @@
   min-height: 100vh;
   position: relative;
   left: 300px;
-  color: #fff;
 }
 
 .admin_siderbar ul li button {
@@ -111,4 +110,47 @@
   .admin_sidebar {
     width: 90% !important;
   }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+form .form_control {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+form .form_control label {
+  color: #445360;
+  font-size: 15px;
+}
+
+form .form_control input,
+form .form_control select,
+form .form_control textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  outline: none;
+  border-radius: 5px;
+}
+
+form .form_control input:focus {
+  border-color: rgba(255, 0, 0, 0.234);
+}
+
+table thead tr th {
+  padding: 5px;
+  background: #dddddd7e;
+}
+
+table tbody tr td {
+  padding: 8px;
+  border-bottom: 1px solid #ddddddae;
+  border-right: 1px solid #dddddda7;
+  text-align: center;
 }

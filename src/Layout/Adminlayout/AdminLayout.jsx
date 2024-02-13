@@ -24,9 +24,9 @@ export default function AdminLayout() {
       <aside className={`admin_sidebar ${sidebar && "admin_sidebar_show"}`}>
         <AdminSidebar />
       </aside>
-      <div className="admin_content">
+      <div className="admin_content bg-gray-50">
         <AdminHeader setSidebar={setSidebar} />
-        <main className="sm:p-5 py-5 ">
+        <main className="sm:p-5 py-5">
           <Outlet />
         </main>
       </div>

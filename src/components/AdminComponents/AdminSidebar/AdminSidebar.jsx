@@ -1,6 +1,6 @@
-import { BsCart4 } from "react-icons/bs";
-import { MdOutlineDashboard } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { MdOutlineDashboard, MdCategory } from "react-icons/md";
+import { GrGamepad } from "react-icons/gr";
 import SidebarItems from "./SidebarItems";
 
 const adminSidebarItems = [
@@ -10,12 +10,22 @@ const adminSidebarItems = [
     path: "/admin/dashboard",
   },
   {
-    icon: <BsCart4 />,
-    title: "Games",
+    icon: <MdCategory />,
+    title: "Category",
     subMenu: [
       {
-        title: "Cricket",
-        path: "/admin/games/cricket",
+        title: "Sports",
+        path: "/admin/category/sports",
+      },
+    ],
+  },
+  {
+    icon: <GrGamepad />,
+    title: "Game",
+    subMenu: [
+      {
+        title: "Sports",
+        path: "/admin/game/sports",
       },
     ],
   },
