@@ -8,7 +8,7 @@ export default function Header() {
   const [loginModal, setLoginModal] = useState(false);
   const [sidebar, setSidebar] = useState(false);
 
-  const userLogin = true;
+  const userLogin = false;
 
   return (
     <header className="sticky top-0 z-50 py-2.5 bg-gray-900 border-b border-gray-700">
