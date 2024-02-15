@@ -11,6 +11,8 @@ import Dashboard from "../pages/AdminPages/Dashboard/Dashboard";
 import AllSports from "../pages/AdminPages/Game/Sports/AllSports/AllSports";
 import AddSport from "../pages/AdminPages/Game/Sports/AddSport/AddSport";
 import EditSport from "../pages/AdminPages/Game/Sports/EditSport/EditSport";
+import AccountLayout from "../Layout/AccountLayout/AccountLayout";
+import Wallet from "../pages/AccountPages/Wallet/Wallet";
 
 export const routes = createBrowserRouter([
   {
@@ -40,6 +42,16 @@ export const routes = createBrowserRouter([
       {
         path: "slots",
         element: <Slot />,
+      },
+      {
+        path: "/account",
+        element: <AccountLayout />,
+        children: [
+          {
+            path: "/account/wallet",
+            element: <Wallet />,
+          },
+        ],
       },
     ],
   },

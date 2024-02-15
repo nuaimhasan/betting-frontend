@@ -19,6 +19,10 @@ body {
   }
 }
 
+.active {
+  color: red;
+}
+
 input,
 select {
   outline: none;

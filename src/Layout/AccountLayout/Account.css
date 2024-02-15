@@ -1,0 +1,123 @@
+/* ----------------Account --------------------- */
+.account_sidebar {
+  width: 300px;
+  min-height: 70vh;
+  background: #313131;
+  color: #fff;
+  box-shadow: 3px -2px 20px 0px #0000000c, 0px 4px 20px 0px #0000000c;
+  border-radius: 5px;
+}
+
+.account_sidebar ul li a {
+  padding: 7px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.account_sidebar ul li a .icon {
+  background: #6a6a6a;
+  border-radius: 50%;
+  width: 27px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.3s ease;
+}
+
+.account_sidebar ul li a:hover {
+  background: rgba(0, 0, 0, 0.2);
+  color: #f04b51;
+}
+
+.account_sidebar ul li a:hover .icon {
+  background: #fff;
+  color: #f04b51;
+}
+
+.account_sidebar ul li a.active {
+  background: rgba(0, 0, 0, 0.2);
+  color: #f04b51;
+  border-left: 2px solid #f04b51;
+}
+
+.account_sidebar ul li a.active .icon {
+  background: #fff;
+  color: #f04b51;
+}
+
+.community_social {
+  background: #000;
+}
+
+.community_social ul li a {
+  background: #313131;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.account_content {
+  width: calc(100% - 300px);
+  color: #fff;
+}
+
+/* Wallet pages */
+.wallet .payment_method li button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  height: 75px;
+  width: 150px;
+  transition: all 0.3s ease;
+}
+
+.wallet .payment_method li button.active {
+  border-color: #f04b51;
+  position: relative;
+}
+
+.wallet .payment_method li button.active p {
+  color: #f04b51;
+}
+
+.wallet .payment_method li button:hover {
+  border-color: #f04b51;
+}
+
+.wallet .payment_method li button p {
+  color: #b4b4b4;
+  font-size: 13px;
+}
+
+.wallet .payment_account li button {
+  height: 40px;
+  width: 120px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .account_sidebar {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    z-index: 9999;
+    background: #313131;
+    transition: all 0.3s ease;
+  }
+
+  .account_sidebar_show {
+    transform: translateX(0%);
+  }
+
+  .account_content {
+    width: 100%;
+  }
+}
