@@ -121,3 +121,9 @@
     width: 100%;
   }
 }
+
+@media only screen and (max-width: 350px) {
+  .wallet .payment_method li button {
+    width: 100px;
+  }
+}

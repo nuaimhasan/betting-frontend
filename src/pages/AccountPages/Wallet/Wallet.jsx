@@ -3,6 +3,8 @@ import { PiWarningCircleFill } from "react-icons/pi";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 
 export default function Wallet() {
+  window.scroll(0, 0);
+
   return (
     <div className="wallet">
       <div className="bg-[#313131] p-3 rounded grid grid-cols-3 gap-6">
@@ -40,7 +42,7 @@ export default function Wallet() {
               </p>
             </div>
 
-            <div className="flex gap-1">
+            <div className="flex gap-1 text-sm sm:text-[15px]">
               <button className="px-4 py-1 rounded bg-red-500">Deposit</button>
               <button className="px-4 py-1 rounded bg-gray-500">
                 Withdrawal
@@ -196,7 +198,7 @@ export default function Wallet() {
             <p></p>
           </div>
 
-          <div className="mt-4 flex items-center gap-2">
+          <div className="mt-4 flex flex-wrap items-center gap-2">
             <div className="relative">
               <p className="absolute text-xs text-red-300 left-2 top-2.5">
                 <FaBangladeshiTakaSign />

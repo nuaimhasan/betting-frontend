@@ -13,6 +13,9 @@ import AddSport from "../pages/AdminPages/Game/Sports/AddSport/AddSport";
 import EditSport from "../pages/AdminPages/Game/Sports/EditSport/EditSport";
 import AccountLayout from "../Layout/AccountLayout/AccountLayout";
 import Wallet from "../pages/AccountPages/Wallet/Wallet";
+import Categories from "../pages/AdminPages/Category/Sport/Categories/Categories";
+import AddCategories from "../pages/AdminPages/Category/Sport/Categories/AddCategories";
+import EditCategories from "../pages/AdminPages/Category/Sport/Categories/EditCategories";
 
 export const routes = createBrowserRouter([
   {
@@ -62,6 +65,18 @@ export const routes = createBrowserRouter([
       {
         path: "/admin/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/admin/category/sport/all-categories",
+        element: <Categories />,
+      },
+      {
+        path: "/admin/category/sport/add-category",
+        element: <AddCategories />,
+      },
+      {
+        path: "/admin/category/sport/edit-category/:id",
+        element: <EditCategories />,
       },
       {
         path: "/admin/game/sports",

@@ -15,7 +15,7 @@ const adminSidebarItems = [
     subMenu: [
       {
         title: "Sports",
-        path: "/admin/category/sports",
+        path: "/admin/category/sport/all-categories",
       },
     ],
   },
