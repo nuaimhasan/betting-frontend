@@ -12,7 +12,7 @@ export default function LoginModal({ loginModal, setLoginModal }) {
         className={`modal w-[400px] rounded-md ${loginModal && "modal_show"}`}
       >
         <div className="bg-red-600 px-4 py-3 flex justify-between items-end">
-          <p className="text-lg text-white">Welcome to eManager</p>
+          <p className="text-lg text-white">Welcome to Betxfair</p>
           <button onClick={() => setLoginModal(false)}>
             <MdClose className="text-xl hover:text-white duration-200" />
           </button>
@@ -36,7 +36,11 @@ export default function LoginModal({ loginModal, setLoginModal }) {
               />
             </div>
             <div className="text-end underline -mt-2">
-              <Link to="" className="hover:text-red-600 duration-200">
+              <Link
+                onClick={() => setLoginModal(false)}
+                to="/forgot-password"
+                className="hover:text-red-600 duration-200"
+              >
                 Forgot Password
               </Link>
             </div>
@@ -48,7 +52,8 @@ export default function LoginModal({ loginModal, setLoginModal }) {
             <div className="-mt-2">
               Do not have an account?{" "}
               <Link
-                to="/gest/register"
+                onClick={() => setLoginModal(false)}
+                to="/user/register"
                 className="underline hover:text-red-600 duration-200"
               >
                 Sign Up now!
