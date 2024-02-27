@@ -1,76 +1,50 @@
 import { PiWarningCircleFill } from "react-icons/pi";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DepositModal from "./DepositModal";
+import Swal from "sweetalert2";
+import { useDepositMethodQuery } from "../../../../Redux/deposit/depositApi";
+
+const numbers = [50, 100, 500, 1000, 1500, 2000, 5000, 10000, 15000, 20000];
 
 export default function Deposit() {
   const [deposit, setDeposit] = useState(false);
+  const { data, isLoading } = useDepositMethodQuery();
+  const [activeMethod, setActiveMethod] = useState({});
+  const [amount, setAmount] = useState("");
+
+  useEffect(() => {
+    if (!isLoading || data?.length > 0) {
+      setActiveMethod(data[0]);
+    }
+  }, [data, isLoading]);
+
+  if (isLoading) {
+    return "Loading...";
+  }
 
   return (
     <div>
       <div className="mt-3">
         <h2 className="text-[15px]">Payment Method</h2>
         <ul className="flex flex-wrap mt-2 gap-2 payment_method">
-          <li>
-            <button className="active">
-              <img
-                src="/images/PaymentMethod/nagad.png"
-                alt=""
-                className="w-6"
-              />
-              <p>Nagad</p>
-            </button>
-          </li>
-          <li>
-            <button>
-              <img
-                src="/images/PaymentMethod/bkash.png"
-                alt=""
-                className="w-6"
-              />
-              <p>bKash</p>
-            </button>
-          </li>
-          <li>
-            <button>
-              <img
-                src="/images/PaymentMethod/rocket.png"
-                alt=""
-                className="w-6"
-              />
-              <p>Rocket</p>
-            </button>
-          </li>
-          <li>
-            <button>
-              <img
-                src="/images/PaymentMethod/bank-card.png"
-                alt=""
-                className="w-6"
-              />
-              <p>Local Bank</p>
-            </button>
-          </li>
-          <li>
-            <button>
-              <img
-                src="/images/PaymentMethod/erc20.png"
-                alt=""
-                className="w-6"
-              />
-              <p>USDT TRC20</p>
-            </button>
-          </li>
-          <li>
-            <button>
-              <img
-                src="/images/PaymentMethod/trc20.png"
-                alt=""
-                className="w-6"
-              />
-              <p>USDT ERC20</p>
-            </button>
-          </li>
+          {data?.map((method) => (
+            <li key={method?.id}>
+              <button
+                onClick={() => setActiveMethod(method)}
+                className={method?.id === activeMethod?.id && "active"}
+              >
+                <img
+                  src={`${import.meta.env.VITE_BACKEND_ASSESTS_URL}/gateway/${
+                    method?.image
+                  }`}
+                  alt=""
+                  className="w-6"
+                />
+                <p>{method?.name}</p>
+              </button>
+            </li>
+          ))}
         </ul>
       </div>
 
@@ -78,59 +52,21 @@ export default function Deposit() {
         <h2 className="text-[15px]">Payment Ammount</h2>
         <div className="mt-3 flex items-center gap-10 text-xs">
           <p>Amount</p>
-          <p className="text-red-200 ">৳ 200 - ৳ 25,000</p>
+          <p className="text-red-200 ">
+            ৳ {activeMethod?.min_limit} - ৳ {activeMethod?.max_limit}
+          </p>
         </div>
         <ul className="flex flex-wrap mt-2 gap-2 payment_method payment_account">
-          <li>
-            <button className="active">
-              <p>50</p>
-            </button>
-          </li>
-          <li>
-            <button>
-              <p>100</p>
-            </button>
-          </li>
-          <li>
-            <button>
-              <p>200</p>
-            </button>
-          </li>
-          <li>
-            <button>
-              <p>500</p>
-            </button>
-          </li>
-          <li>
-            <button>
-              <p>1000</p>
-            </button>
-          </li>
-          <li>
-            <button>
-              <p>2000</p>
-            </button>
-          </li>
-          <li>
-            <button>
-              <p>5000</p>
-            </button>
-          </li>
-          <li>
-            <button>
-              <p>10000</p>
-            </button>
-          </li>
-          <li>
-            <button>
-              <p>15000</p>
-            </button>
-          </li>
-          <li>
-            <button>
-              <p>20000</p>
-            </button>
-          </li>
+          {numbers?.map((number, i) => (
+            <li key={i}>
+              <button
+                onClick={() => setAmount(number)}
+                className={number === amount && "active"}
+              >
+                <p>{number}</p>
+              </button>
+            </li>
+          ))}
         </ul>
 
         <div className="mt-4 border rounded border-[#7293e1] flex items-start gap-2 bg-[rgba(114,147,225,.4)] p-2">
@@ -165,18 +101,31 @@ export default function Deposit() {
               name=""
               className="px-3 py-1 rounded outline-none bg-transparent border border-[#b4b4b437] text-end pl-6"
               placeholder="0.00"
+              defaultValue={amount}
+              onChange={(e) => setAmount(e.target.value)}
             />
           </div>
           <div>
             <button
-              onClick={() => setDeposit(true)}
+              onClick={() => {
+                if (amount !== "") {
+                  setDeposit(true);
+                } else {
+                  Swal.fire("", "please select an amount", "warning");
+                }
+              }}
               className="bg-red-500 px-6 py-1 rounded"
             >
               Deposit
             </button>
 
             {deposit && (
-              <DepositModal deposit={deposit} setDeposit={setDeposit} />
+              <DepositModal
+                deposit={deposit}
+                setDeposit={setDeposit}
+                activeMethod={activeMethod}
+                amount={amount}
+              />
             )}
           </div>
         </div>

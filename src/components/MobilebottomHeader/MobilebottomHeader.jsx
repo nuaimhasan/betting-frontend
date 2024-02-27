@@ -2,15 +2,11 @@ import { NavLink } from "react-router-dom";
 import { GoHomeFill } from "react-icons/go";
 import { MdAccountBalanceWallet, MdAccountCircle } from "react-icons/md";
 import { FaMoneyBill1Wave } from "react-icons/fa6";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function MobilebottomHeader() {
   const user = true;
   const [sidebar, setSidebar] = useState(false);
-
-  useEffect(() => {
-    localStorage.setItem("b_account", sidebar);
-  }, [sidebar]);
 
   return (
     <div className="w-full fixed bottom-0 left-0 z-50 text-white text-[13px] lg:hidden">

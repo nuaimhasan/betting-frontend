@@ -3,9 +3,11 @@ import { MdEmail } from "react-icons/md";
 import Deposit from "../../../components/AccountComponents/WalletCom/Deposit/Deposit";
 import Withdrawal from "../../../components/AccountComponents/WalletCom/Withdrawal/Withdrawal";
 import EmailVerifyModal from "../../../components/AccountComponents/WalletCom/EmailVerifyModal/EmailVerifyModal";
+import { useSelector } from "react-redux";
 
 export default function Wallet() {
   window.scroll(0, 0);
+  const { loggedUser } = useSelector((state) => state.user);
   const [tab, setTab] = useState("Deposit");
   const [emailVerify, setEmailVerify] = useState(false);
 
@@ -15,37 +17,52 @@ export default function Wallet() {
         <div className="border-r border-[#9999993f]">
           <p className="text-[#999] text-sm">Main Wallet</p>
           <p className="text-green-600">
-            ৳ <span className="text-2xl font-medium">0</span>
+            ৳{" "}
+            <span className="text-2xl font-medium">
+              {parseFloat(loggedUser?.main_wallet).toFixed(2)}
+            </span>
           </p>
         </div>
 
         <div className="border-r border-[#9999993f]">
           <p className="text-[#999] text-sm">Bonus Wallet</p>
           <p className="text-green-600">
-            ৳ <span className="text-2xl font-medium">0</span>
+            ৳{" "}
+            <span className="text-2xl font-medium">
+              {parseFloat(loggedUser?.bonus_wallet).toFixed(2)}
+            </span>
           </p>
         </div>
 
-        <div className="flex justify-between items-center">
-          <div>
-            <p className="text-[#999] text-sm">Security Level</p>
-            <p className="text-red-500 text-sm">Unverified</p>
+        {loggedUser?.email_verify === "0" ? (
+          <div className="flex justify-between items-center">
+            <div>
+              <p className="text-[#999] text-sm">Security Level</p>
+              <p className="text-red-500 text-sm">Unverified</p>
+            </div>
+            <div>
+              <button
+                onClick={() => setEmailVerify(true)}
+                className="bg-red-600 p-1.5 rounded-full text-white"
+              >
+                <MdEmail className="text-lg" />
+              </button>
+              {emailVerify && (
+                <EmailVerifyModal
+                  emailVerify={emailVerify}
+                  setEmailVerify={setEmailVerify}
+                />
+              )}
+            </div>
           </div>
-          <div>
-            <button
-              onClick={() => setEmailVerify(true)}
-              className="bg-red-600 p-1.5 rounded-full text-white"
-            >
-              <MdEmail className="text-lg" />
-            </button>
-            {emailVerify && (
-              <EmailVerifyModal
-                emailVerify={emailVerify}
-                setEmailVerify={setEmailVerify}
-              />
-            )}
+        ) : (
+          <div className="flex justify-between items-center">
+            <div>
+              <p className="text-[#999] text-sm">Security Level</p>
+              <p className="text-green-500 text-sm">Verified</p>
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       <div className="mt-2 bg-[#313131] p-3 rounded">

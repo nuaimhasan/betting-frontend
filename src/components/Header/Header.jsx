@@ -3,12 +3,12 @@ import LoginModal from "../LoginModal/LoginModal";
 import { HiMenuAlt2 } from "react-icons/hi";
 import MobileSidebar from "../MobileSidebar/MobileSidebar";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function Header() {
+  const { loggedUser } = useSelector((store) => store.user);
   const [loginModal, setLoginModal] = useState(false);
   const [sidebar, setSidebar] = useState(false);
-
-  const userLogin = false;
 
   return (
     <header className="sticky top-0 z-50 py-2.5 bg-gray-900 border-b border-gray-700">
@@ -26,7 +26,7 @@ export default function Header() {
           </Link>
 
           <div className="hidden lg:flex items-center gap-2 text-[15px]">
-            {userLogin ? (
+            {loggedUser ? (
               <>
                 <Link
                   to="/account/deposit"
@@ -39,7 +39,8 @@ export default function Header() {
                   to="/account/wallet"
                   className="bg-green-600 text-white px-4 py-1 rounded"
                 >
-                  Main Wallet - ৳ 00
+                  Main Wallet - ৳{" "}
+                  {parseFloat(loggedUser?.main_wallet).toFixed(2)}
                 </Link>
 
                 <button className="bg-gray-600 text-white px-4 py-1 rounded">

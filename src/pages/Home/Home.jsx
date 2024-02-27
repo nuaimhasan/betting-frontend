@@ -17,8 +17,8 @@ export default function Home() {
       <MobileCategory />
       <Matches />
       <UpcomingMatch />
-      <CricketBet />
-      <FootballBet />
+      {/* <CricketBet />
+      <FootballBet /> */}
       <Services />
     </>
   );

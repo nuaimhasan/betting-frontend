@@ -8,13 +8,20 @@ import {
 import { TbGiftFilled } from "react-icons/tb";
 import { FiMonitor } from "react-icons/fi";
 import { ImUsers } from "react-icons/im";
+import { useSelector } from "react-redux";
 
 export default function AccountSidebar() {
+  const { loggedUser } = useSelector((state) => state.user);
+
   return (
     <div>
       <div className="flex flex-col gap-2 justify-center items-center border-b pb-2 border-gray-600 mx-10 py-10">
-        <img src="" alt="" className="w-16 h-16 border rounded-full mx-auto" />
-        <h3 className="text-center">Nuaim Hasan</h3>
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/1053/1053244.png"
+          alt=""
+          className="w-16 h-16 rounded-full mx-auto"
+        />
+        <h3 className="text-center">{loggedUser?.name}</h3>
         <div className="flex items-center gap-1 text-sm text-red-500">
           <FaStar className="text-xs" />0
         </div>

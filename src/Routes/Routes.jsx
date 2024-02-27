@@ -10,6 +10,7 @@ import Casino from "../pages/Casino/Casino";
 import Slot from "../pages/Slot/Slot";
 import Sports from "../pages/Sports/Sports";
 
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import AccountLayout from "../Layout/AccountLayout/AccountLayout";
 import Wallet from "../pages/AccountPages/Wallet/Wallet";
 
@@ -57,8 +58,16 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/account",
-        element: <AccountLayout />,
+        element: (
+          <PrivateRoute>
+            <AccountLayout />
+          </PrivateRoute>
+        ),
         children: [
+          {
+            path: "/account",
+            element: <Wallet />,
+          },
           {
             path: "/account/wallet",
             element: <Wallet />,

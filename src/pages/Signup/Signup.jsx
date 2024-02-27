@@ -1,7 +1,57 @@
-// import { useState } from "react";
+import Swal from "sweetalert2";
+import { useRegisterMutation } from "../../Redux/user/authApi";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 export default function Signup() {
-  // const [page, setPage] = useState(1);
+  const { loggedUser } = useSelector((store) => store.user);
+  const [register, { isLoading, isError }] = useRegisterMutation();
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/account/wallet";
+
+  useEffect(() => {
+    if (loggedUser !== undefined && !isError) {
+      navigate(from, { replace: true });
+    }
+  }, [loggedUser, from, navigate, isError]);
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const name = form.name.value;
+    const username = form.username.value;
+    const email = form.email.value;
+    const phone = form.phone.value;
+    const refer = form.refer.value;
+    const password = form.password.value;
+    const password_confirmation = form.password.value;
+
+    const data = {
+      name,
+      username,
+      email,
+      phone,
+      refer,
+      password,
+      password_confirmation,
+    };
+
+    const res = await register(data);
+
+    if (res?.data?.token) {
+      Swal.fire("", "Register Success", "success");
+      form.reset();
+    } else {
+      Swal.fire("", "Something Went Wrong", "error");
+    }
+    if (res?.error) {
+      Swal.fire("", "Something Went Wrong", "error");
+    }
+  };
 
   return (
     <section className="bg-gray-700 text-white py-5 md:py-10">
@@ -13,7 +63,10 @@ export default function Signup() {
                 <h2>Sign up</h2>
               </div>
 
-              <form className="mt-4 flex flex-col gap-4">
+              <form
+                onSubmit={handleRegister}
+                className="mt-4 flex flex-col gap-4"
+              >
                 <div className="flex flex-col gap-1.5">
                   <p>Full Name</p>
                   <input
@@ -31,7 +84,7 @@ export default function Signup() {
                     className="w-full bg-gray-600 px-4 py-2 rounded outline-none border border-gray-600 focus:border-red-600"
                     placeholder="4-15 char, allow number"
                     required
-                    name="userName"
+                    name="username"
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
@@ -41,7 +94,7 @@ export default function Signup() {
                     className="w-full bg-gray-600 px-4 py-2 rounded outline-none border border-gray-600 focus:border-red-600"
                     placeholder=""
                     required
-                    name="number"
+                    name="phone"
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
@@ -61,7 +114,7 @@ export default function Signup() {
                     className="w-full bg-gray-600 px-4 py-2 rounded outline-none border border-gray-600 focus:border-red-600"
                     placeholder="********"
                     required
-                    name="passaword"
+                    name="password"
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
@@ -70,12 +123,15 @@ export default function Signup() {
                     type="text"
                     className="w-full bg-gray-600 px-4 py-2 rounded outline-none border border-gray-600 focus:border-red-600"
                     placeholder="Enter if you have any"
-                    name="referCode"
+                    name="refer"
                   />
                 </div>
                 <div className="mt-2">
-                  <button className="w-full bg-gray-600 px-4 py-2 rounded text-white hover:bg-red-600 duration-300">
-                    Sign Up
+                  <button
+                    disabled={isLoading && "disabled"}
+                    className="w-full bg-gray-600 px-4 py-2 rounded text-white hover:bg-red-600 duration-300"
+                  >
+                    {isLoading ? "Loading..." : "Sign Up"}
                   </button>
                 </div>
               </form>
