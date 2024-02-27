@@ -43,7 +43,7 @@ export default function LoginForm({ setLoginModal }) {
   };
 
   return (
-    <form onSubmit={handleLogin} className="flex flex-col gap-4 text-gray-800">
+    <form onSubmit={handleLogin} className="flex flex-col gap-4 text-white">
       <div className="flex flex-col gap-1.5">
         <p>Username</p>
         <input
@@ -66,7 +66,7 @@ export default function LoginForm({ setLoginModal }) {
         <Link
           onClick={() => setLoginModal(false)}
           to="/forgot-password"
-          className="hover:text-red-600 duration-200"
+          className="hover:text-red-600 duration-200 text-sm sm:text-base"
         >
           Forgot Password
         </Link>
@@ -79,7 +79,7 @@ export default function LoginForm({ setLoginModal }) {
           {isLoading ? "Loading..." : "Login"}
         </button>
       </div>
-      <div className="-mt-2">
+      <div className="-mt-2 text-sm sm:text-base">
         Do not have an account?{" "}
         <Link
           to="/user/register"

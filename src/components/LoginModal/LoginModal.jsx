@@ -17,7 +17,7 @@ export default function LoginModal({ loginModal, setLoginModal }) {
             <MdClose className="text-xl hover:text-white duration-200" />
           </button>
         </div>
-        <div className="py-8 px-10 bg-gray-100">
+        <div className="py-8 px-10 bg-gray-800">
           <LoginForm setLoginModal={setLoginModal} />
         </div>
       </div>

@@ -3,12 +3,14 @@ import LoginModal from "../LoginModal/LoginModal";
 import { HiMenuAlt2 } from "react-icons/hi";
 import MobileSidebar from "../MobileSidebar/MobileSidebar";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { userLogout } from "../../Redux/user/userSlice";
 
 export default function Header() {
   const { loggedUser } = useSelector((store) => store.user);
   const [loginModal, setLoginModal] = useState(false);
   const [sidebar, setSidebar] = useState(false);
+  const dispatch = useDispatch();
 
   return (
     <header className="sticky top-0 z-50 py-2.5 bg-gray-900 border-b border-gray-700">
@@ -29,13 +31,6 @@ export default function Header() {
             {loggedUser ? (
               <>
                 <Link
-                  to="/account/deposit"
-                  className="bg-red-600 text-white px-4 py-1 rounded"
-                >
-                  Deposit
-                </Link>
-
-                <Link
                   to="/account/wallet"
                   className="bg-green-600 text-white px-4 py-1 rounded"
                 >
@@ -43,7 +38,10 @@ export default function Header() {
                   {parseFloat(loggedUser?.main_wallet).toFixed(2)}
                 </Link>
 
-                <button className="bg-gray-600 text-white px-4 py-1 rounded">
+                <button
+                  onClick={() => dispatch(userLogout())}
+                  className="bg-gray-600 text-white px-4 py-1 rounded"
+                >
                   Logout
                 </button>
               </>

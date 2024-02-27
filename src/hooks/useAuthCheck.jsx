@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { userLoggedIn } from "../Redux/user/userSlice";
-// import { useJwt } from "react-jwt";
+import { useJwt } from "react-jwt";
 
 export default async function useAuthCheck() {
   const dispatch = useDispatch();
   const [authChecked, setAuthChecked] = useState(false);
   const token = localStorage?.getItem("betxfire_jwt");
-  // const { isExpired } = useJwt(token);
-  // if (isExpired) {
-  //   localStorage.removeItem("betxfire_jwt");
-  // }
+  const { isExpired } = useJwt(token);
+  if (isExpired) {
+    localStorage.removeItem("betxfire_jwt");
+  }
 
   useEffect(() => {
     if (token) {

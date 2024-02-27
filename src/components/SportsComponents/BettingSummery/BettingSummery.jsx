@@ -25,10 +25,16 @@ export default function BettingSummery({ bettingMatch }) {
     };
 
     const res = await placeBet(data);
+    console.log(res);
+
     if (res?.data?.status !== 200) {
-      Swal.fire("", "something went wrong", "error");
+      Swal.fire(
+        "",
+        res?.data?.message ? res?.data?.message : "something went wrong",
+        "error"
+      );
     }
-    if (res?.data?.status !== 200) {
+    if (res?.data?.status == 200) {
       Swal.fire("", "Bet place success", "success");
       window.relode();
     }

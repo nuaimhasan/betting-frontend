@@ -24,8 +24,6 @@ export default function SportGameCard({
     match_result,
   } = game;
 
-  console.log(game);
-
   const handleSelectBet = (teamId, match) => {
     setBettingMatch({ teamId, match });
   };

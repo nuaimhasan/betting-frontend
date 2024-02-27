@@ -115,6 +115,7 @@
 
   .account_sidebar_show {
     transform: translateX(0%);
+    overflow-y: auto;
   }
 
   .account_content {
@@ -125,5 +126,9 @@
 @media only screen and (max-width: 350px) {
   .wallet .payment_method li button {
     width: 100px;
+  }
+
+  .account_sidebar {
+    width: 90%;
   }
 }

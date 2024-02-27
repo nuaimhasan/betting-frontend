@@ -192,7 +192,7 @@ select {
   left: -100%;
   z-index: 999999;
   height: 100vh;
-  width: 80%;
+  width: 300px;
   background: #111827;
 
   visibility: hidden;
@@ -202,6 +202,12 @@ select {
 .sidebar_show {
   visibility: visible;
   left: 0%;
+}
+
+@media only screen and (max-width: 350px) {
+  .sidebar {
+    width: 90%;
+  }
 }
 
 /* React Tab */

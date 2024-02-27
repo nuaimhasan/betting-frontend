@@ -12,16 +12,8 @@ import Sports from "../pages/Sports/Sports";
 
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import AccountLayout from "../Layout/AccountLayout/AccountLayout";
-import Wallet from "../pages/AccountPages/Wallet/Wallet";
-
-// import AdminLayout from "../Layout/Adminlayout/AdminLayout";
-// import Dashboard from "../pages/AdminPages/Dashboard/Dashboard";
-// import AllSports from "../pages/AdminPages/Game/Sports/AllSports/AllSports";
-// import AddSport from "../pages/AdminPages/Game/Sports/AddSport/AddSport";
-// import EditSport from "../pages/AdminPages/Game/Sports/EditSport/EditSport";
-// import Categories from "../pages/AdminPages/Category/Sport/Categories/Categories";
-// import AddCategories from "../pages/AdminPages/Category/Sport/Categories/AddCategories";
-// import EditCategories from "../pages/AdminPages/Category/Sport/Categories/EditCategories";
+import Deposit from "../pages/AccountPages/Deposit/Deposit";
+import Withdrawal from "../pages/AccountPages/Withdrawal/Withdrawal";
 
 export const routes = createBrowserRouter([
   {
@@ -65,49 +57,19 @@ export const routes = createBrowserRouter([
         ),
         children: [
           {
-            path: "/account",
-            element: <Wallet />,
+            path: "/account/wallet",
+            element: <Deposit />,
           },
           {
-            path: "/account/wallet",
-            element: <Wallet />,
+            path: "/account/wallet/deposit",
+            element: <Deposit />,
+          },
+          {
+            path: "/account/wallet/withdrawal",
+            element: <Withdrawal />,
           },
         ],
       },
     ],
   },
-  // {
-  //   path: "/admin",
-  //   element: <AdminLayout />,
-  //   children: [
-  //     {
-  //       path: "/admin/dashboard",
-  //       element: <Dashboard />,
-  //     },
-  //     {
-  //       path: "/admin/category/sport/all-categories",
-  //       element: <Categories />,
-  //     },
-  //     {
-  //       path: "/admin/category/sport/add-category",
-  //       element: <AddCategories />,
-  //     },
-  //     {
-  //       path: "/admin/category/sport/edit-category/:id",
-  //       element: <EditCategories />,
-  //     },
-  //     {
-  //       path: "/admin/game/sports",
-  //       element: <AllSports />,
-  //     },
-  //     {
-  //       path: "/admin/game/sports/add",
-  //       element: <AddSport />,
-  //     },
-  //     {
-  //       path: "/admin/game/sports/edit/:id",
-  //       element: <EditSport />,
-  //     },
-  //   ],
-  // },
 ]);
