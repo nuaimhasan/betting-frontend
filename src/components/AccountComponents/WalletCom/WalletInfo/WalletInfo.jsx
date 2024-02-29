@@ -7,8 +7,6 @@ export default function WalletInfo() {
   const { loggedUser } = useSelector((state) => state.user);
   const [emailVerify, setEmailVerify] = useState(false);
 
-  console.log(loggedUser);
-
   return (
     <div className="bg-[#313131] p-3 rounded grid grid-cols-3 gap-6">
       <div className="border-r border-[#9999993f]">

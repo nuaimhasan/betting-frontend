@@ -1,16 +1,14 @@
 import { MdClose } from "react-icons/md";
 import { useSelector } from "react-redux";
-import { useManualDepositMutation } from "../../../../Redux/deposit/depositApi";
 import Swal from "sweetalert2";
 
-export default function DepositModal({
-  deposit,
-  setDeposit,
+export default function WithdrawalModal({
+  withdrawal,
+  setWithdrawal,
   activeMethod,
   amount,
 }) {
   const { loggedUser } = useSelector((store) => store.user);
-  const [manualDeposit, { isLoading }] = useManualDepositMutation();
 
   const handleDepositConfirm = async (e) => {
     e.preventDefault();
@@ -25,25 +23,21 @@ export default function DepositModal({
     formData.append("detail", detail);
     formData.append("image", image);
 
-    const res = await manualDeposit(formData);
-    setDeposit(false);
-
-    if (res?.data?.status === 200) {
-      Swal.fire("", "Deposit request confirm", "success");
-    } else {
-      Swal.fire("", "something went wront", "error");
-    }
+    setWithdrawal(false);
+    Swal.fire("", "something went wront", "error");
   };
   return (
     <>
       <button
-        onClick={() => setDeposit(false)}
-        className={`overlay ${deposit && "overlay_show"}`}
+        onClick={() => setWithdrawal(false)}
+        className={`overlay ${withdrawal && "overlay_show"}`}
       ></button>
-      <div className={`modal w-[400px] rounded-md ${deposit && "modal_show"}`}>
+      <div
+        className={`modal w-[400px] rounded-md ${withdrawal && "modal_show"}`}
+      >
         <div className="bg-red-600 px-4 py-3 flex justify-between items-end">
-          <p className="text-lg text-white">{activeMethod?.name} Deposit</p>
-          <button onClick={() => setDeposit(false)}>
+          <p className="text-lg text-white">{activeMethod?.name} Withdrawal</p>
+          <button onClick={() => setWithdrawal(false)}>
             <MdClose className="text-xl hover:text-white duration-200" />
           </button>
         </div>
@@ -92,11 +86,8 @@ export default function DepositModal({
             </div>
 
             <div>
-              <button
-                disabled={isLoading && "disabled"}
-                className="w-full bg-red-600 text-white py-2 rounded"
-              >
-                {isLoading ? "Loading..." : "Confirm"}
+              <button className="w-full bg-red-600 text-white py-2 rounded">
+                Confirm
               </button>
             </div>
           </form>

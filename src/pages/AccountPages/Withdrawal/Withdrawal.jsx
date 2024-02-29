@@ -5,11 +5,11 @@ import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import { useDepositMethodQuery } from "../../../Redux/deposit/depositApi";
 import Swal from "sweetalert2";
-import DepositModal from "../../../components/AccountComponents/WalletCom/Deposit/DepositModal";
+import WithdrawalModal from "../../../components/AccountComponents/WalletCom/Withdrawal/WithdrawalModal/WithdrawalModal";
 const numbers = [50, 100, 500, 1000, 1500, 2000, 5000, 10000, 15000, 20000];
 
 export default function Withdrawal() {
-  const [deposit, setDeposit] = useState(false);
+  const [withdrawal, setWithdrawal] = useState(false);
   const { data, isLoading } = useDepositMethodQuery();
   const [activeMethod, setActiveMethod] = useState({});
   const [amount, setAmount] = useState("");
@@ -139,20 +139,20 @@ export default function Withdrawal() {
                 <button
                   onClick={() => {
                     if (amount !== "") {
-                      setDeposit(true);
+                      setWithdrawal(true);
                     } else {
                       Swal.fire("", "please select an amount", "warning");
                     }
                   }}
                   className="bg-red-500 px-6 py-1 rounded"
                 >
-                  Deposit
+                  Withdrawal
                 </button>
 
-                {deposit && (
-                  <DepositModal
-                    deposit={deposit}
-                    setDeposit={setDeposit}
+                {withdrawal && (
+                  <WithdrawalModal
+                    withdrawal={withdrawal}
+                    setWithdrawal={setWithdrawal}
                     activeMethod={activeMethod}
                     amount={amount}
                   />
