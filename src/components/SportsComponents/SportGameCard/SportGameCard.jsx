@@ -1,11 +1,9 @@
 import { FaBaseballBatBall } from "react-icons/fa6";
+import BetSlip from "../../BetSlip/BetSlip";
+import { useState } from "react";
+import Swal from "sweetalert2";
 
-export default function SportGameCard({
-  game,
-
-  bettingMatch,
-  setBettingMatch,
-}) {
+export default function SportGameCard({ game }) {
   const {
     id,
     name,
@@ -24,8 +22,16 @@ export default function SportGameCard({
     match_result,
   } = game;
 
+  const [bettingMatch, setBettingMatch] = useState(null);
+  const [betSlip, setBetSlip] = useState(false);
+
   const handleSelectBet = (teamId, match) => {
-    setBettingMatch({ teamId, match });
+    if (match?.match_status == 1 && match?.match_result == 0) {
+      setBettingMatch({ teamId, match });
+      setBetSlip(true);
+    } else {
+      return Swal.fire("", "Can't Bet on the game now", "warning");
+    }
   };
 
   return (
@@ -46,9 +52,9 @@ export default function SportGameCard({
                 import.meta.env.VITE_BACKEND_ASSESTS_URL
               }/game/${t1_icon}`}
               alt=""
-              className="w-11 h-11 rounded-full"
+              className="w-9 sm:w-11 h-9 sm:h-11 rounded-full"
             />
-            <p className="text-center">{t1_name}</p>
+            <p className="text-center text-sm sm:text-base">{t1_name}</p>
           </div>
 
           <div>
@@ -61,28 +67,29 @@ export default function SportGameCard({
                 import.meta.env.VITE_BACKEND_ASSESTS_URL
               }/game/${t2_icon}`}
               alt=""
-              className="w-11 h-11 rounded-full"
+              className="w-9 sm:w-11 h-9 sm:h-11 rounded-full"
             />
-            <p className="text-center">{t2_name}</p>
+            <p className="text-center text-sm sm:text-base">{t2_name}</p>
           </div>
         </div>
 
         <div className="mt-4">
           <div>
-            <h2 className="text-center relative after:absolute after:w-[36%] after:h-px after:bg-white after:left-0 after:top-3.5 before:absolute before:w-[36%] before:h-px before:bg-white before:right-0 before:top-3.5">
+            <h2 className="text-sm sm:text-base text-center relative after:absolute after:w-[36%] after:h-px after:bg-white after:left-0 after:top-3.5 before:absolute before:w-[36%] before:h-px before:bg-white before:right-0 before:top-3.5">
               Team Wins
             </h2>
           </div>
 
-          <div className="mt-2 grid grid-cols-2 gap-4 text-[15px]">
+          <div className="mt-2 grid grid-cols-2 gap-4 text-[15px] text-sm sm:text-base">
             <button
               onClick={() => handleSelectBet(1, game)}
               className={`flex justify-between items-center border rounded-lg px-4 py-1.5 hover:bg-red-700 duration-300 hover:border-red-700 ${
                 bettingMatch?.match?.id == id &&
                 bettingMatch?.teamId == 1 &&
                 "bg-red-700 border-red-700"
+              } ${
+                (match_status != 1 || match_result != 0) && "border-red-600"
               }`}
-              disabled={match_status == 2 && "disabled"}
             >
               <p>{t1_short_name}</p>
               <p>{t1_win_offer}*</p>
@@ -94,12 +101,21 @@ export default function SportGameCard({
                 bettingMatch?.match?.id == id &&
                 bettingMatch?.teamId == 2 &&
                 "bg-red-700 border-red-700"
+              } ${
+                (match_status != 1 || match_result != 0) && "border-red-600"
               }`}
-              disabled={match_status == 2 && "disabled"}
             >
               <p>{t2_short_name}</p>
               <p>{t2_win_offer}*</p>
             </button>
+
+            {/* Bet Summury */}
+            <BetSlip
+              betSlip={betSlip}
+              setBetSlip={setBetSlip}
+              bettingMatch={bettingMatch}
+              setBettingMatch={setBettingMatch}
+            />
           </div>
         </div>
       </div>

@@ -4,14 +4,16 @@ import {
   useCategoryWaysGameQuery,
 } from "../../Redux/category/categoryApi";
 import { useEffect, useState } from "react";
-import BettingSummery from "../../components/SportsComponents/BettingSummery/BettingSummery";
 
 export default function Sports() {
-  const [bettingMatch, setBettingMatch] = useState(null);
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   const { data } = useAllCategoriesQuery();
   const [selectedCategory, setSelectedCategory] = useState("");
   const { data: games, isLoading } = useCategoryWaysGameQuery(selectedCategory);
+
   useEffect(() => {
     if (data?.length > 0) {
       setSelectedCategory(data[0]?.id);
@@ -30,20 +32,15 @@ export default function Sports() {
 
   if (!isLoading && games?.length > 0) {
     content = games?.map((game) => (
-      <SportGameCard
-        key={game?.id}
-        game={game}
-        setBettingMatch={setBettingMatch}
-        bettingMatch={bettingMatch}
-      />
+      <SportGameCard key={game?.id} game={game} />
     ));
   }
 
   return (
     <section>
       <div className="container">
-        <div className="grid grid-cols-3 bg-gray-800 text-white min-h-[80vh]">
-          <div className="col-span-2">
+        <div className="bg-gray-800 text-white min-h-[80vh]">
+          <div>
             <div className="border-b">
               <button>
                 {data?.map((category) => (
@@ -61,15 +58,9 @@ export default function Sports() {
               </button>
             </div>
 
-            <div className="p-2 grid sm:grid-cols-2 gap-4">{content}</div>
-          </div>
-
-          <div className="bg-gray-700 text-white">
-            <div className="bg-gray-800 px-1 py-[9px]">
-              <p className="text-sm text-center">Bet Slip</p>
+            <div className="p-2 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {content}
             </div>
-
-            {bettingMatch && <BettingSummery bettingMatch={bettingMatch} />}
           </div>
         </div>
       </div>

@@ -48,31 +48,6 @@ const categories = [
     name: "Slots",
     icon: "/images/category_icons/slot.png",
   },
-  {
-    _id: "4",
-    name: "Arcade",
-    icon: "/images/category_icons/arcade.png",
-  },
-  {
-    _id: "5",
-    name: "Fishing",
-    icon: "/images/category_icons/fish.png",
-  },
-  {
-    _id: "6",
-    name: "Crash",
-    icon: "/images/category_icons/crash.png",
-  },
-  {
-    _id: "7",
-    name: "Table",
-    icon: "/images/category_icons/table.png",
-  },
-  {
-    _id: "8",
-    name: "Lottery",
-    icon: "/images/category_icons/lottery.png",
-  },
 ];
 
 export default categories;

@@ -1,4 +1,4 @@
-.mobile_category button {
+.mobile_category a {
   width: 64px;
   height: 80px;
   display: flex;
@@ -8,17 +8,7 @@
   text-align: center;
 }
 
-.mobile_category button.active {
+.mobile_category a.active {
   background: red !important;
   position: relative;
-}
-.mobile_category button.active::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  width: 10px;
-  height: 10px;
-  background: #000;
-  transform: translate(-50%) rotate(45deg);
 }

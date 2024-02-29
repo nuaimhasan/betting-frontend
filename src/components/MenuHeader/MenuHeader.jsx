@@ -28,11 +28,6 @@ export default function MenuHeader() {
               </NavLink>
             </li>
           ))}
-          <li>
-            <NavLink to="/promotions" className="block px-8 py-2">
-              Promotions
-            </NavLink>
-          </li>
         </ul>
       </div>
     </section>
