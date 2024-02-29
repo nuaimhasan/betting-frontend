@@ -1,4 +1,3 @@
-// import { FaBaseballBatBall } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useCategoryWaysGameQuery } from "../../../Redux/category/categoryApi";
 import SportGameCard from "../../SportsComponents/SportGameCard/SportGameCard";
@@ -39,6 +38,24 @@ export default function GamesSection({ category }) {
           <Link to="https://www.goal.com/en-in/live-scores">
             <img
               src="/images/football.webp"
+              alt=""
+              className="w-full sm:h-60"
+            />
+          </Link>
+        )}
+        {category?.name === "Soccer" && (
+          <Link to="https://www.livescore.in">
+            <img
+              src="/images/soccer-banner.jpg"
+              alt=""
+              className="w-full sm:h-60"
+            />
+          </Link>
+        )}
+        {category?.name === "Kabaddi" && (
+          <Link to="https://www.flashscore.com/kabaddi">
+            <img
+              src="/images/kabaddi-banner.png"
               alt=""
               className="w-full sm:h-60"
             />

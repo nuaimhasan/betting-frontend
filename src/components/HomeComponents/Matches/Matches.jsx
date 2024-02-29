@@ -16,7 +16,7 @@ export default function Matches() {
   return (
     <section className="bg-gray-800 pt-5 text-white">
       <div className="container">
-        <h2>All Matches</h2>
+        <h2>Live Matches</h2>
 
         <Swiper
           slidesPerView={1}

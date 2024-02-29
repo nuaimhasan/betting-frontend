@@ -11,13 +11,13 @@ export default function Headline() {
           </p>
           <Marquee>
             <p>
-              eManager is Bangladesh&apos;s Best Cricket Betting Exchange
+              Betxfire is Bangladesh&apos;s Best Cricket Betting Exchange
               Platform.
             </p>
             <p>Sign Up For Your Free ID Today.</p>
             <p>Bkash, Nagad & Rocket Accepted. More Ways to Win Big !!</p>
             <p>
-              eManager is now a partner with Jilli, Stay tuned for more
+              Betxfire is now a partner with Jilli, Stay tuned for more
               exclusive offers, tournaments, and events on your favourite Jilli
               games.
             </p>
